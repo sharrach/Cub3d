@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:34:11 by sharrach          #+#    #+#             */
-/*   Updated: 2022/12/30 00:44:16 by sharrach         ###   ########.fr       */
+/*   Updated: 2022/12/30 10:21:51 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ static int ft_map_closed(t_data *data)
 			// 			|| (y >= 1 && x < (int)ft_strlen(data->map[y - 1]) && data->map[y - 1][x] == ' ')))
 			// 		return (printf("Error\nMap not closed.\n"), 0);
 			else if (ft_strchr("0NSEW", data->map[y][x])
-					&& (((!data->map[y][x + 1] || data->map[y][x + 1]) && data->map[y][x + 1] == ' ')
+					&& ((!data->map[y][x + 1] || (data->map[y][x + 1] && data->map[y][x + 1] == ' '))
 						|| (x >= 1 && data->map[y][x - 1] == ' ')
 						|| ((!data->map[y + 1] || data->map[y + 1]) && x < (int)ft_strlen(data->map[y + 1]) && data->map[y + 1][x] == ' ')
 						|| (y >= 1 && x < (int)ft_strlen(data->map[y - 1]) && data->map[y - 1][x] == ' ')))
