@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2022/12/29 11:12:15 by sharrach         ###   ########.fr        #
+#    Updated: 2023/01/01 17:02:45 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,11 @@ NAME	=	cub3d
 HEADER	=	includes/cub3d.h
 
 SRCS	=	srcs/main.c\
-			srcs/ft_read_map.c
+			srcs/ft_read_map.c\
+			srcs/ft_move_player.c\
+			srcs/ft_draw_minimap.c\
+			srcs/ft_render_next_frame.c\
+			srcs/ft_wall_distance.c
 
 OBJS	=	$(SRCS:.c=.o)
 
