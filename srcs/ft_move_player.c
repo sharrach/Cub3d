@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:03:00 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/01 16:19:57 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/03 20:56:00 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,9 @@ int	ft_key_press(int keycode, t_data *data)
 	else if (keycode == KEY_A)
 		data->vars.a_var = 1;
 	else if (keycode == KEY_LEFT)
-		data->player.sight -= 0.1;
+		data->player.sight -= 0.05;
 	else if (keycode == KEY_RIGHT)
-		data->player.sight += 0.1;
+		data->player.sight += 0.05;
 	// else if (keycode == KEY_ESC)
 	// {
 	// 	ft_printf("Game Closed");

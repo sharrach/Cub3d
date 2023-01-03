@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:45:30 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/01 20:41:10 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/03 22:28:31 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ static void	ft_draw_square(t_data *data, int x, int y, int color)
 		j++;
 	}
 }
+// && printf("%d %d\n", (int)v_inters.x, (int)ft_strlen(data->map[(int)v_inters.y]))
+// && printf("%d %d\n", (int)v_inters.x, (int)ft_strlen(data->map[(int)v_inters.y]))
+// printf("%d %d\n", (int)v_inters.y, (int)ft_arrlen(data->map))
+// && (printf("%d %d\n", (int)h_inters.y, (int)ft_arrlen(data->map))
+
 
 float	ft_distance(t_pos pos1, t_pos pos2)
 {
@@ -68,31 +73,44 @@ float	ft_distance(t_pos pos1, t_pos pos2)
 
 void	ft_draw_rays(t_data *data)
 {
-	t_pos	pos;
 	t_pos	v_inters;
 	t_pos	h_inters;
+	t_pos	diff;
 
-	pos.y = data->player.pos.y;
-	pos.x = data->player.pos.x;
-	// printf("222 %f %f - %c\n", pos.y, pos.x, data->map[(int)pos.y][(int)pos.x]);
-	while (data->map[(int)pos.y][(int)pos.x] != '1' )
+	v_inters = ft_wall_vdistance(data->player.pos, data->player.sight);
+	diff = ft_wall_vdistance(v_inters, data->player.sight);
+	diff.x -= v_inters.x;
+	diff.y -= v_inters.y;
+	while ((diff.x || diff.y)
+		&& (int)v_inters.y >= 0 && (int)v_inters.y < (int)ft_arrlen(data->map)
+		&& (int)v_inters.x >= 0 && (int)v_inters.x < (int)ft_strlen(data->map[(int)v_inters.y])
+		&& data->map[(int)v_inters.y][(int)v_inters.x] != '1')
 	{
-		v_inters = ft_wall_vdistance(pos, data->player.sight);
-		h_inters = ft_wall_hdistance(pos, data->player.sight);
-		if (ft_distance(data->player.pos, v_inters) > ft_distance(data->player.pos, h_inters))
-		{
-			pos.y = h_inters.y;
-			pos.x = h_inters.x;
-			printf("1 %f %f - %c\n", pos.y, pos.x, data->map[(int)pos.y][(int)pos.x]);
-		}
-		else if (ft_distance(data->player.pos, v_inters) < ft_distance(data->player.pos, h_inters))
-		{
-			pos.y = v_inters.y;
-			pos.x = v_inters.x;
-			printf("2 %f %f - %c\n", pos.y, pos.x, data->map[(int)pos.y][(int)pos.x]);
-		}
+		v_inters.x += diff.x;
+		v_inters.y += diff.y;
 	}
-	ft_draw_player(data, pos.x, pos.y, 0xff0000);
+	h_inters = ft_wall_hdistance(data->player.pos, data->player.sight);
+	diff = ft_wall_hdistance(h_inters, data->player.sight);
+	diff.x -= h_inters.x;
+	diff.y -= h_inters.y;
+	while ((diff.x || diff.y)
+		&& (int)h_inters.y >= 0 && (int)h_inters.y < (int)ft_arrlen(data->map)
+		&& (int)h_inters.x >= 0 && (int)h_inters.x < (int)ft_strlen(data->map[(int)h_inters.y])
+		&& data->map[(int)h_inters.y][(int)h_inters.x] != '1')
+	{
+		h_inters.x += diff.x;
+		h_inters.y += diff.y;
+	}
+	if (ft_distance(data->player.pos, h_inters) < ft_distance(data->player.pos, v_inters))
+	{
+		// printf("h %f %f - %c\n", h_inters.y, h_inters.x, data->map[(int)h_inters.y][(int)h_inters.x]);
+		ft_draw_player(data, h_inters.x, h_inters.y, 0x000000);
+	}
+	else
+	{
+		// printf("v %f %f - %c\n", v_inters.y, v_inters.x, data->map[(int)v_inters.y][(int)v_inters.x]);
+		ft_draw_player(data, v_inters.x, v_inters.y, 0x000000);
+	}
 }
 
 void	ft_draw_minimap(t_data *data)
