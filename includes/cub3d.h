@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/01 18:22:08 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/15 16:40:10 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
+// #include <graphics.h>
 # include <errno.h>
 
 # define KEY_ESC	65307
@@ -32,13 +33,18 @@
 # define KEY_RIGHT	65363
 # define KEY_DOWN	65364
 
+# define TILE_SIZE	8
+# define FOV		60
+# define WIDTH		720
+# define HEIGHT		360
+
 # define PI			3.14159265358979323846
 # define PI_2		1.57079632679489661923
 
 typedef struct s_img
 {
 	void	*img;
-	char	*addr;
+	int		*addr;
 	int		width;
 	int		height;
 	int		bits_per_pixel;
@@ -59,6 +65,26 @@ typedef struct s_pos
 	float	x;
 	float	y;
 }	t_pos;
+
+typedef struct s_dims
+{
+	float	width;
+	float	height;
+}	t_dims;
+
+typedef struct s_elmnt
+{
+	t_pos	pos;
+	t_pos	wall;
+	t_dims	dims;
+}	t_elmnt;
+
+
+typedef struct s_intpos
+{
+	int	x;
+	int	y;
+}	t_intpos;
 
 typedef struct s_player
 {
@@ -88,7 +114,12 @@ int 	ft_render_next_frame(t_data *data);
 int		ft_key_press(int keycode, t_data *data);
 int		ft_key_free(int keycode, t_data *data);
 void	ft_move_player(t_data *data);
-t_pos    ft_wall_vdistance(t_pos pos, float angle);
-t_pos    ft_wall_hdistance(t_pos pos, float angle);
+t_pos   ft_wall_vdistance(t_pos pos, float angle);
+t_pos   ft_wall_hdistance(t_pos pos, float angle);
+void	ft_put_pixel(t_img *image, int x, int y, int color);
+void	ft_draw_walls(t_data *data);
+float	ft_distance(t_pos pos1, t_pos pos2);
+void	ft_draw_rays(t_data *data);
+void    ft_floor_ceilling_color(t_data *data);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/01/01 17:02:45 by sharrach         ###   ########.fr        #
+#    Updated: 2023/01/10 19:06:26 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,12 @@ SRCS	=	srcs/main.c\
 			srcs/ft_move_player.c\
 			srcs/ft_draw_minimap.c\
 			srcs/ft_render_next_frame.c\
-			srcs/ft_wall_distance.c
+			srcs/ft_wall_distance.c\
+			srcs/ft_put_pixel.c\
+			srcs/ft_draw_rays.c\
+			srcs/ft_floor_ceilling.c\
+			srcs/ft_draw_walls.c
+
 
 OBJS	=	$(SRCS:.c=.o)
 

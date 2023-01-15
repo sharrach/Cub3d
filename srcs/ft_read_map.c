@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:34:11 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/01 17:01:49 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/14 16:38:49 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,25 @@ static int	ft_get_colors(t_data *data, char **usb)
 	return (free_2d(clr), 1);
 }
 
+static void ft_get_image_data(t_data *data, t_img *img, char *file)
+{
+	img->img = mlx_xpm_file_to_image(data->mlx,
+			file, &img->width, &img->height);
+	img->addr = (int *)mlx_get_data_addr(img->img,
+			&img->bits_per_pixel, &img->line_length,
+			&img->endian);
+}
+
 int	ft_get_image(t_data *data, char **usb)
 {
 	if (ft_strcmp(usb[0], "NO") == 0)
-		data->no.img = mlx_xpm_file_to_image(data->mlx,
-			usb[1], &data->no.width, &data->no.height);
+		ft_get_image_data(data, &data->no, usb[1]);
 	else if (ft_strcmp(usb[0], "EA") == 0)
-		data->ea.img = mlx_xpm_file_to_image(data->mlx,
-			usb[1], &data->ea.width, &data->ea.height);
+		ft_get_image_data(data, &data->ea, usb[1]);
 	else if (ft_strcmp(usb[0], "WE") == 0)
-		data->we.img = mlx_xpm_file_to_image(data->mlx,
-			usb[1], &data->we.width, &data->we.height);
+		ft_get_image_data(data, &data->we, usb[1]);
 	else if (ft_strcmp(usb[0], "SO") == 0)
-		data->so.img = mlx_xpm_file_to_image(data->mlx,
-			usb[1], &data->so.width, &data->so.height);
+		ft_get_image_data(data, &data->so, usb[1]);
 	else if (ft_strcmp(usb[0], "C") == 0 || ft_strcmp(usb[0], "F") == 0)
 	{
 		if (!ft_get_colors(data, usb))
@@ -220,8 +225,8 @@ static void	ft_get_position(t_data *data)
 	int	y;
 	int	x;
 
-	y = 0;
-	while (data->map[y])
+	y = -1;
+	while (data->map[++y])
 	{
 		x = 0;
 		while (data->map[y][x])
@@ -241,7 +246,6 @@ static void	ft_get_position(t_data *data)
 			}
 			x++;
 		}
-		y++;
 	}
 }
 

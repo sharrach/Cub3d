@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:43:30 by iellyass          #+#    #+#             */
-/*   Updated: 2023/01/01 12:57:54 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:31:58 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ int main(int ac, char *av[])
 		return (EXIT_FAILURE);
 	if (!ft_read_map(&data, av[1]))
 		return (EXIT_FAILURE);
-	data.window = mlx_new_window(data.mlx, 30 * ft_strlen(data.map[0]), 30 * ft_arrlen(data.map), "cub3d");
+	data.window = mlx_new_window(data.mlx, WIDTH, HEIGHT, "cub3d");
 	if (!data.window)
 		return (EXIT_FAILURE);
-	data.image.img = mlx_new_image(data.mlx, 30 * ft_strlen(data.map[0]), 30 * ft_arrlen(data.map));
+	data.image.img = mlx_new_image(data.mlx, WIDTH, HEIGHT);
 	if (!data.image.img)
 		return (EXIT_FAILURE);
-	data.image.addr = mlx_get_data_addr(data.image.img, &data.image.bits_per_pixel,
-			&data.image.line_length, &data.image.endian);
+	data.image.width = WIDTH;
+	data.image.height = HEIGHT;
+	data.image.addr = (int *)mlx_get_data_addr(data.image.img,
+			&data.image.bits_per_pixel, &data.image.line_length,
+			&data.image.endian);
 	mlx_hook(data.window, 2, 1L << 0, ft_key_press, &data);
 	mlx_loop_hook(data.mlx, ft_render_next_frame, &data);
 	mlx_hook(data.window, 3, 1L << 1, ft_key_free, &data);
