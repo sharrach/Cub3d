@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/15 16:52:40 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:27:33 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ static t_pos ft_get_h_inters(t_data *data, float angle)
 		h_inters.x += diff.x;
 		h_inters.y += diff.y;
 	}
-	return(h_inters);
+	return (h_inters);
 }
 
 static t_pos	ft_get_wall(t_data *data, float angle, int *var)

@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:19:21 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/14 22:02:09 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:11:20 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 unsigned long rgb(int rgb[3])
 {
-    return((rgb[0] & 0xff) << 16) + ((rgb[1] & 0xff) << 8) + (rgb[2] & 0xff);
+	return (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }
 
 void    ft_floor_ceilling_color(t_data *data)

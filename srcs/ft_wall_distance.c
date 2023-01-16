@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/01 16:04:14 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/13 16:12:48 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/15 17:25:54 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_pos    ft_wall_vdistance(t_pos pos, float angle)
 	{
 		pos.y -= tan(angle) * (pos.x - floor(pos.x));
 		pos.x -= pos.x - floor(pos.x);
-		pos.x -= 0.000001;
+		pos.x -= 0.0001;
 	}
 	else
 	{
@@ -42,7 +42,7 @@ t_pos    ft_wall_hdistance(t_pos pos, float angle)
 	{
 		pos.x -= (pos.y - floor(pos.y)) / tan(angle);
 		pos.y -= pos.y - floor(pos.y);
-		pos.y -= 0.000001;
+		pos.y -= 0.0001;
 	}
 	else
 	{
