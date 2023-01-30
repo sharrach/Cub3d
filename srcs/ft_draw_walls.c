@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/15 17:27:33 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:21:42 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
 		elmnt.pos.x = 0;
 }
 
-static t_pos ft_get_v_inters(t_data *data, float angle)
+static t_pos	ft_get_v_inters(t_data *data, float angle)
 {
 	t_pos	diff;
 	t_pos	v_inters;
@@ -89,7 +89,7 @@ static t_pos ft_get_v_inters(t_data *data, float angle)
 	return (v_inters);
 }
 
-static t_pos ft_get_h_inters(t_data *data, float angle)
+static t_pos	ft_get_h_inters(t_data *data, float angle)
 {
 	t_pos	diff;
 	t_pos	h_inters;

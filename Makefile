@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/01/10 19:06:26 by sharrach         ###   ########.fr        #
+#    Updated: 2023/01/26 14:11:16 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,25 +38,32 @@ LIBFT	=	libft
 
 LIB		=	$(LIBFT)/libft.a
 
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S), Darwin)
-	MLX_DIR		=	mlx_macos
-	MLX			=	$(MLX_DIR)/libmlx.a
-	MLX_IFLAGS	=	-Imlx_macos
-	MLX_LFLAGS	=	-framework OpenGL -framework AppKit
-endif
-ifeq ($(UNAME_S), Linux)
-	MLX_DIR		=	mlx_linux
-	MLX			=	$(MLX_DIR)/libmlx.a
-	MLX_IFLAGS	=	-I/usr/include -Imlx_linux -O3
-	MLX_LFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-endif
+# UNAME_S := $(shell uname -s)
+# ifeq ($(UNAME_S), Darwin)
+# 	MLX_DIR		=	mlx_macos
+# 	MLX			=	$(MLX_DIR)/libmlx.a
+# 	MLX_IFLAGS	=	-Imlx_macos
+# 	MLX_LFLAGS	=	-framework OpenGL -framework AppKit
+# endif
+# ifeq ($(UNAME_S), Linux)
+# 	MLX_DIR		=	mlx_linux
+# 	MLX			=	$(MLX_DIR)/libmlx.a
+# 	MLX_IFLAGS	=	-I/usr/include -Imlx_linux -O3
+# 	MLX_LFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+# endif
 
-%.o: %.c $(HEADER)
-			$(CC) $(CFLAGS) $(MLX_IFLAGS) -c $< -o $@
+%.o: %.c
+			$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
-$(NAME)	:	$(LIB) $(MLX) $(OBJS) $(HEADER)
-			$(CC) $(CFLAGS) $(OBJS) $(LIB) $(MLX) $(MLX_LFLAGS) -o $(NAME)
+$(NAME):	$(OBJS) $(HEADER)
+			make -C libft
+			$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit $(LIB) -o $(NAME)
+
+# %.o: %.c $(HEADER)
+# 			$(CC) $(CFLAGS) $(MLX_IFLAGS) -c $< -o $@
+
+# $(NAME)	:	$(LIB) $(MLX) $(OBJS) $(HEADER)
+# 			$(CC) $(CFLAGS) $(OBJS) $(LIB) $(MLX) $(MLX_LFLAGS) -o $(NAME)
 
 $(LIB):
 			make -C $(LIBFT)

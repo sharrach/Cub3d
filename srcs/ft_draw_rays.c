@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 23:21:16 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/14 16:39:51 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/29 14:21:06 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ static void DDA(t_data *data, t_pos fp, t_pos lp)
 	lp.x *= TILE_SIZE;
 	fp.y *= TILE_SIZE;
 	lp.y *= TILE_SIZE;
-    dist.x = lp.x - fp.x;
-    dist.y = lp.y - fp.y;
+	dist.x = lp.x - fp.x;
+	dist.y = lp.y - fp.y;
 	if (abs(dist.x) > abs(dist.y))
 		steps = abs(dist.x);
 	else
 		steps = abs(dist.y);
-    inc.x = dist.x / (float)steps;
-    inc.y = dist.y / (float)steps;
-    cord.x = fp.x;
-    cord.y = fp.y;
+	inc.x = dist.x / (float)steps;
+	inc.y = dist.y / (float)steps;
+	cord.x = fp.x;
+	cord.y = fp.y;
 	i = 0;
-    while (i <= steps) 
+	while (i <= steps) 
 	{
 		ft_put_pixel(&data->image, round(cord.x), round(cord.y), 0x000000);
-        cord.x += inc.x; 
-        cord.y += inc.y; 
+		cord.x += inc.x; 
+		cord.y += inc.y; 
 		i++;
-    }
+	}
 }
 
 t_pos	ft_get_wall(t_data *data, float angle)
