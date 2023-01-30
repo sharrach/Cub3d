@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/01/26 14:11:16 by sharrach         ###   ########.fr        #
+#    Updated: 2023/01/30 15:18:40 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,10 @@ SRCS	=	srcs/main.c\
 			srcs/ft_put_pixel.c\
 			srcs/ft_draw_rays.c\
 			srcs/ft_floor_ceilling.c\
+			srcs/ft_draw_rect.c\
+			srcs/ft_get_map.c\
+			srcs/ft_utils.c\
+			srcs/ft_read_map_utils.c\
 			srcs/ft_draw_walls.c
 
 
@@ -52,7 +56,7 @@ LIB		=	$(LIBFT)/libft.a
 # 	MLX_LFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 # endif
 
-%.o: %.c
+%.o: %.c $(HEADER)
 			$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME):	$(OBJS) $(HEADER)

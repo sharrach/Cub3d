@@ -6,17 +6,29 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:03:00 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/26 18:42:38 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:23:57 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_move_player(t_data *data)
+void	ft_move_player(t_data *data, float sight)
 {
-	float	sight;
 	float	tmp;
 	float	tmp1;
+
+	tmp = data->player.pos.y + sin(sight) * 0.1;
+	tmp1 = data->player.pos.x + cos(sight) * 0.1;
+	if (data->map[(int)tmp][(int)tmp1] != '1')
+	{
+		data->player.pos.y = tmp;
+		data->player.pos.x = tmp1;
+	}
+}
+
+void	ft_get_player_sight(t_data *data)
+{
+	float	sight;
 
 	if (data->vars.w_var == 1 && data->vars.a_var == 1)
 		sight = data->player.sight - PI_2 / 2;
@@ -36,16 +48,10 @@ void	ft_move_player(t_data *data)
 		sight = data->player.sight - PI_2;
 	else
 		return ;
-	tmp = data->player.pos.y + sin(sight) * 0.01;
-	tmp1 = data->player.pos.x + cos(sight) * 0.01;
-	if (data->map[(int)tmp][(int)tmp1] != '1')
-	{
-		data->player.pos.y = tmp;
-		data->player.pos.x = tmp1;
-	}
+	ft_move_player(data, sight);
 }
 
-int	ft_key_press(int keycode, t_data *data)
+int	ft_key_press(int 	keycode, t_data *data)
 {
 	if (keycode == KEY_W || keycode == KEY_UP)
 		data->vars.w_var = 1;
@@ -67,9 +73,8 @@ int	ft_key_press(int keycode, t_data *data)
 	return (0);
 }
 
-int ft_key_free(int keycode, t_data *data)
+int	ft_key_free(int keycode, t_data *data)
 {
-
 	if (keycode == KEY_W || keycode == KEY_UP)
 		data->vars.w_var = 0;
 	else if (keycode == KEY_S || keycode == KEY_DOWN)

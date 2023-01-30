@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_draw_rect.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/30 15:11:01 by sharrach          #+#    #+#             */
+/*   Updated: 2023/01/30 15:11:26 by sharrach         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/cub3d.h"
+
+void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var)
+{
+	t_pos		pos;
+	t_pos		cons;
+	t_intpos	color;
+
+	cons.x = img.width;
+	cons.y = img.height / elmnt.dims.height;
+	if (var == 1)
+		color.x = (elmnt.wall.x - floor(elmnt.wall.x)) * cons.x;
+	else
+		color.x = (elmnt.wall.y - floor(elmnt.wall.y)) * cons.x;
+	pos.y = elmnt.pos.y;
+	while (pos.y < elmnt.pos.y + elmnt.dims.height)
+	{
+		color.y = (pos.y - elmnt.pos.y) * cons.y;
+		pos.x = elmnt.pos.x;
+		while (pos.x < elmnt.pos.x + elmnt.dims.width)
+		{
+			ft_put_pixel(&data->image, pos.x, pos.y,
+				img.addr[img.width * color.y + color.x]);
+			pos.x++;
+		}
+		pos.y++;
+	}
+}

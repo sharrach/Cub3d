@@ -6,13 +6,13 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 23:21:16 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/29 14:21:06 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:06:45 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-static void DDA(t_data *data, t_pos fp, t_pos lp)
+static void	DDA(t_data *data, t_pos fp, t_pos lp)
 {
 	t_intpos	dist;
 	t_pos		inc;

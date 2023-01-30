@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/26 18:41:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:32:15 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@
 # include "../libft/libft.h"
 # include <mlx.h>
 # include <math.h>
-// #include <graphics.h>
 # include <errno.h>
+// #include <graphics.h>
 
 
-# define KEY_ESC 53
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_W 13
 // # define KEY_ESC	65307
 // # define KEY_A		97
 // # define KEY_S		115
 // # define KEY_D		100
 // # define KEY_W		119
+# define KEY_ESC 53
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_W 13
 # define KEY_LEFT	123
 # define KEY_UP		126
 # define KEY_RIGHT	124
@@ -41,8 +41,8 @@
 
 # define TILE_SIZE	8
 # define FOV		60
-# define WIDTH		720
-# define HEIGHT		360
+# define WIDTH		1080
+# define HEIGHT		720
 
 # define PI			3.14159265358979323846
 # define PI_2		1.57079632679489661923
@@ -116,16 +116,25 @@ typedef struct s_data
 
 int		ft_read_map(t_data *data, char *file);
 void	ft_draw_minimap(t_data *data);
-int 	ft_render_next_frame(t_data *data);
+int		ft_render_next_frame(t_data *data);
 int		ft_key_press(int keycode, t_data *data);
 int		ft_key_free(int keycode, t_data *data);
-void	ft_move_player(t_data *data);
-t_pos   ft_wall_vdistance(t_pos pos, float angle);
-t_pos   ft_wall_hdistance(t_pos pos, float angle);
+void	ft_get_player_sight(t_data *data);
+t_pos	ft_wall_vdistance(t_pos pos, float angle);
+t_pos	ft_wall_hdistance(t_pos pos, float angle);
 void	ft_put_pixel(t_img *image, int x, int y, int color);
 void	ft_draw_walls(t_data *data);
 float	ft_distance(t_pos pos1, t_pos pos2);
 void	ft_draw_rays(t_data *data);
-void    ft_floor_ceilling_color(t_data *data);
+void	ft_floor_ceilling_color(t_data *data);
+//utils
+int		ft_is_init(t_data *data);
+void	ft_init_data(t_data *data);
+int		ft_is_number(char *str);
+int		ft_map_closed(t_data *data);
+int		ft_get_image(t_data *data, char **usb);
+int		ft_get_map(t_data *data, int fd);
+int		ft_get_colors(t_data *data, char **usb);
+void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var);
 
 #endif

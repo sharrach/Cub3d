@@ -6,52 +6,25 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/29 14:21:42 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/30 15:20:54 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var)
+void	ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
 {
-	t_pos		pos;
-	t_pos		cons;
-	t_intpos	color;
-
-	cons.x = img.width;
-	cons.y = img.height / elmnt.dims.height;
-	if (var == 1)
-		color.x = (elmnt.wall.x - floor(elmnt.wall.x)) * cons.x;
-	else
-		color.x = (elmnt.wall.y - floor(elmnt.wall.y)) * cons.x;
-	pos.y = elmnt.pos.y;
-	while (pos.y < elmnt.pos.y + elmnt.dims.height)
-	{
-		color.y = (pos.y - elmnt.pos.y) * cons.y;
-		pos.x = elmnt.pos.x;
-		while (pos.x < elmnt.pos.x + elmnt.dims.width)
-		{
-			ft_put_pixel(&data->image, pos.x, pos.y,
-				img.addr[img.width * color.y + color.x]);
-			pos.x++;
-		}
-		pos.y++;
-	}
-}
-
-void ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
-{
-	static	t_elmnt	elmnt;
+	static t_elmnt	elmnt;
 	float			distance;
 
 	while (angle >= 2 * PI)
 		angle -= 2 * PI;
 	while (angle < 0)
 		angle += 2 * PI;
-	distance =
-		ft_distance(data->player.pos, wall) * cos(data->player.sight - angle);
+	distance = ft_distance(data->player.pos, wall)
+		* cos(data->player.sight - angle);
 	elmnt.dims.height = HEIGHT / distance;
-	elmnt.dims.width = WIDTH / (FOV / 0.08);
+	elmnt.dims.width = WIDTH / (FOV / 0.1);
 	elmnt.pos.y = (HEIGHT - elmnt.dims.height) / 2;
 	elmnt.wall.x = wall.x;
 	elmnt.wall.y = wall.y;
@@ -135,7 +108,7 @@ void	ft_draw_walls(t_data *data)
 	{
 		wall = ft_get_wall(data, sight, &var);
 		ft_draw_wall(data, wall, sight, var);
-		sight += 0.08 * (PI / 180);
-		rays += 0.08;
+		sight += 0.1 * (PI / 180);
+		rays += 0.1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:45:30 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/14 16:39:41 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/30 13:06:25 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ float	ft_distance(t_pos pos1, t_pos pos2)
 
 void	ft_draw_minimap(t_data *data)
 {
-	t_intpos cord;
+	t_intpos	cord;
 
 	cord.y = 0;
 	while (data->map[cord.y])
