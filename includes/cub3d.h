@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:32:15 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/31 14:33:12 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_vars
 	int	d_var;
 	int	a_var;
 	int	w_var;
+	int l_var;
+	int r_var;
 }	t_vars;
 
 typedef struct s_pos

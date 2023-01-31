@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:11:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:11:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:56:29 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var)
 		color.x = (elmnt.wall.x - floor(elmnt.wall.x)) * cons.x;
 	else
 		color.x = (elmnt.wall.y - floor(elmnt.wall.y)) * cons.x;
-	pos.y = elmnt.pos.y;
-	while (pos.y < elmnt.pos.y + elmnt.dims.height)
+	pos.y = fmax(elmnt.pos.y, 0);
+	while (pos.y < elmnt.pos.y + elmnt.dims.height && pos.y < HEIGHT)
 	{
 		color.y = (pos.y - elmnt.pos.y) * cons.y;
-		pos.x = elmnt.pos.x;
-		while (pos.x < elmnt.pos.x + elmnt.dims.width)
+		pos.x = fmax(elmnt.pos.x, 0);
+		while (pos.x < elmnt.pos.x + elmnt.dims.width && pos.x < WIDTH)
 		{
 			ft_put_pixel(&data->image, pos.x, pos.y,
 				img.addr[img.width * color.y + color.x]);
