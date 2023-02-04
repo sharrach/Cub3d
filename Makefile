@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/01/30 15:18:40 by sharrach         ###   ########.fr        #
+#    Updated: 2023/02/04 16:37:21 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ SRCS	=	srcs/main.c\
 			srcs/ft_get_map.c\
 			srcs/ft_utils.c\
 			srcs/ft_read_map_utils.c\
+			srcs/ft_free2d.c\
+			srcs/ft_exit_program.c\
 			srcs/ft_draw_walls.c
 
 
@@ -57,11 +59,11 @@ LIB		=	$(LIBFT)/libft.a
 # endif
 
 %.o: %.c $(HEADER)
-			$(CC) $(CFLAGS) -Imlx -c $< -o $@
+			$(CC) $(CFLAGS) -Imlx -c $< -o $@ -fsanitize=address
 
 $(NAME):	$(OBJS) $(HEADER)
 			make -C libft
-			$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit $(LIB) -o $(NAME)
+			$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit $(LIB) -o $(NAME) -fsanitize=address
 
 # %.o: %.c $(HEADER)
 # 			$(CC) $(CFLAGS) $(MLX_IFLAGS) -c $< -o $@

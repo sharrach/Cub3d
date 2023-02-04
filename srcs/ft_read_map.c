@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:34:11 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:15:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 16:33:09 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int	ft_get_texts(t_data *data, int fd)
 			free(line);
 			continue ;
 		}
-		line = ft_strtrim(line, "\n");
+		line = ft_remove_nl(line, "\n");
 		if (!line)
 			break ;
 		usb = ft_split(line, ' ');

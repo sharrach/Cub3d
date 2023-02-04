@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/31 14:33:12 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:22:33 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 # define KEY_RIGHT	124
 # define KEY_DOWN	125
 
-# define TILE_SIZE	8
+# define TILE_SIZE	4
 # define FOV		60
 # define WIDTH		1080
 # define HEIGHT		720
@@ -56,7 +56,7 @@ typedef struct s_img
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_img;
+}		t_img;
 
 typedef struct s_vars
 {
@@ -85,7 +85,7 @@ typedef struct s_elmnt
 	t_pos	pos;
 	t_pos	wall;
 	t_dims	dims;
-}	t_elmnt;
+}		t_elmnt;
 
 
 typedef struct s_intpos
@@ -133,10 +133,13 @@ void	ft_floor_ceilling_color(t_data *data);
 int		ft_is_init(t_data *data);
 void	ft_init_data(t_data *data);
 int		ft_is_number(char *str);
+char	*ft_remove_nl(char const *s1, char const *set);
 int		ft_map_closed(t_data *data);
 int		ft_get_image(t_data *data, char **usb);
 int		ft_get_map(t_data *data, int fd);
 int		ft_get_colors(t_data *data, char **usb);
 void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var);
+int		ft_exit_program(t_data *data);
+void	*ft_free2d(char **arr);
 
 #endif

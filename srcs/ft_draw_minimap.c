@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:45:30 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 13:06:25 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:19:36 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,5 @@ void	ft_draw_minimap(t_data *data)
 		cord.y++;
 	}
 	ft_draw_player(data, data->player.pos, 0x12c912);
-	ft_draw_rays(data);
+	// ft_draw_rays(data);
 }

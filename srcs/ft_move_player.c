@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:03:00 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/31 15:17:02 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 15:52:11 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	ft_key_press(int keycode, t_data *data)
 		data->vars.l_var = 1;
 	else if (keycode == KEY_ESC)
 	{
+		ft_exit_program(data);
 		printf("Game Closed");
 		exit(0);
 	}

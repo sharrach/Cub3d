@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:41:56 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:09:43 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 13:13:49 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static void	ft_get_image_data(t_data *data, t_img *img, char *file)
 {
 	img->img = mlx_xpm_file_to_image(data->mlx,
 			file, &img->width, &img->height);
+	if (!img->img)
+		return ;
 	img->addr = (int *)mlx_get_data_addr(img->img,
 			&img->bits_per_pixel, &img->line_length,
 			&img->endian);

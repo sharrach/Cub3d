@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:49:48 by sharrach          #+#    #+#             */
-/*   Updated: 2022/12/28 14:37:31 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:11:56 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
- 
+
 char	*ft_itoa(int n);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
