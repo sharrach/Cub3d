@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/02/04 16:37:21 by sharrach         ###   ########.fr        #
+#    Updated: 2023/02/05 13:14:57 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,8 +31,32 @@ SRCS	=	srcs/main.c\
 			srcs/ft_exit_program.c\
 			srcs/ft_draw_walls.c
 
-
 OBJS	=	$(SRCS:.c=.o)
+
+BONUS_NAME = cub3d_bonus
+
+BONUS_HEADER = includes/cub3d_bonus.h
+
+SRCS_BN = 	srcs_bn/main.c\
+			srcs_bn/ft_read_map.c\
+			srcs_bn/ft_move_player.c\
+			srcs_bn/ft_draw_minimap.c\
+			srcs_bn/ft_render_next_frame.c\
+			srcs_bn/ft_wall_distance.c\
+			srcs_bn/ft_put_pixel.c\
+			srcs_bn/ft_draw_rays.c\
+			srcs_bn/ft_floor_ceilling.c\
+			srcs_bn/ft_draw_rect.c\
+			srcs_bn/ft_get_map.c\
+			srcs_bn/ft_utils.c\
+			srcs_bn/ft_read_map_utils.c\
+			srcs_bn/ft_free2d.c\
+			srcs_bn/ft_exit_program.c\
+			srcs_bn/ft_draw_walls.c
+
+OBJS_BN	=	$(SRCS_BN:.c=.o)
+
+MLX_FLAG =	-lmlx -framework OpenGL -framework AppKit
 
 CC		=	cc
 
@@ -44,44 +68,32 @@ LIBFT	=	libft
 
 LIB		=	$(LIBFT)/libft.a
 
-# UNAME_S := $(shell uname -s)
-# ifeq ($(UNAME_S), Darwin)
-# 	MLX_DIR		=	mlx_macos
-# 	MLX			=	$(MLX_DIR)/libmlx.a
-# 	MLX_IFLAGS	=	-Imlx_macos
-# 	MLX_LFLAGS	=	-framework OpenGL -framework AppKit
-# endif
-# ifeq ($(UNAME_S), Linux)
-# 	MLX_DIR		=	mlx_linux
-# 	MLX			=	$(MLX_DIR)/libmlx.a
-# 	MLX_IFLAGS	=	-I/usr/include -Imlx_linux -O3
-# 	MLX_LFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-# endif
-
-%.o: %.c $(HEADER)
-			$(CC) $(CFLAGS) -Imlx -c $< -o $@ -fsanitize=address
+%.o: %.c $(HEADER) $(BONUS_HEADER)
+			$(CC) $(CFLAGS) -Imlx -c $< -o $@
 
 $(NAME):	$(OBJS) $(HEADER)
 			make -C libft
-			$(CC) $(CFLAGS) $(OBJS) -lmlx -framework OpenGL -framework AppKit $(LIB) -o $(NAME) -fsanitize=address
+			$(CC) $(CFLAGS) $(OBJS) $(MLX_FLAG) $(LIB) -o $(NAME)
 
-# %.o: %.c $(HEADER)
-# 			$(CC) $(CFLAGS) $(MLX_IFLAGS) -c $< -o $@
-
-# $(NAME)	:	$(LIB) $(MLX) $(OBJS) $(HEADER)
-# 			$(CC) $(CFLAGS) $(OBJS) $(LIB) $(MLX) $(MLX_LFLAGS) -o $(NAME)
+$(BONUS_NAME):	$(OBJS_BN) $(BONUS_HEADER)
+				make -C libft
+				$(CC) $(CFLAGS) $(OBJS_BN) $(MLX_FLAG) $(LIB) -o $(BONUS_NAME)
 
 $(LIB):
 			make -C $(LIBFT)
 
 all		:	$(NAME)
 
+bonus	:	$(BONUS_NAME)
+
 clean	:
 			$(RM) $(OBJS)
+			$(RM) $(OBJS_BN)
 			make clean -C $(LIBFT)
 
 fclean	:	clean
 			$(RM) $(NAME)
+			$(RM) $(BONUS_NAME)
 			make fclean -C $(LIBFT)
 
 re		:	fclean all
