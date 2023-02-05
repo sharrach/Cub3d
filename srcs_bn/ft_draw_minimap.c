@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:45:30 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 17:19:36 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:05:26 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 static void	ft_draw_player(t_data *data, t_pos player, int color)
 {

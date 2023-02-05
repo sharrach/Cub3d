@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:11:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/31 13:56:29 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:05:42 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var)
 {

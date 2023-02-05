@@ -6,12 +6,12 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:03:42 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 13:04:07 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:56:14 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -22,16 +22,18 @@
 # include <math.h>
 # include <errno.h>
 
-// # define KEY_ESC	65307
-// # define KEY_A		97
-// # define KEY_S		115
-// # define KEY_D		100
-// # define KEY_W		119
-# define KEY_ESC 53
-# define KEY_A 0
-# define KEY_S 1
-# define KEY_D 2
-# define KEY_W 13
+# define KEY_ESC	65307
+# define KEY_A		97
+# define KEY_S		115
+# define KEY_D		100
+# define KEY_W		119
+
+// # define KEY_ESC 53
+// # define KEY_A 0
+// # define KEY_S 1
+// # define KEY_D 2
+// # define KEY_W 13
+
 # define KEY_LEFT	123
 # define KEY_UP		126
 # define KEY_RIGHT	124
@@ -125,8 +127,9 @@ t_pos	ft_wall_hdistance(t_pos pos, float angle);
 void	ft_put_pixel(t_img *image, int x, int y, int color);
 void	ft_draw_walls(t_data *data);
 float	ft_distance(t_pos pos1, t_pos pos2);
-void	ft_draw_rays(t_data *data);
 void	ft_floor_ceilling_color(t_data *data);
+void	ft_mouse_movement(t_data *data);
+
 //utils
 int		ft_is_init(t_data *data);
 void	ft_init_data(t_data *data);

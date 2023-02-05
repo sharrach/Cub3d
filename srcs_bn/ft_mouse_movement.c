@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_pixel.c                                     :+:      :+:    :+:   */
+/*   ft_mouse_movement.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/07 13:56:38 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:06:17 by sharrach         ###   ########.fr       */
+/*   Created: 2023/02/05 22:02:46 by sharrach          #+#    #+#             */
+/*   Updated: 2023/02/05 23:02:59 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-void	ft_put_pixel(t_img *image, int x, int y, int color)
+void	ft_mouse_movement(t_data *data)
 {
-	if (x < 0 || x >= image->width || y < 0 || y >= image->height)
-		return ;
-	image->addr[image->width * y + x] = color;
+	int				x;
+	int				y;
+	static int		ox;
+
+	mlx_mouse_get_pos(data->mlx, data->window, &x, &y);
+	(void)y;
+	if (ox == 0)
+		ox = x;
+	if (x - ox > 0)
+		data->player.sight += 0.01;
+	else if (x - ox < 0)
+		data->player.sight -= 0.01;
+	ox = x;
 }

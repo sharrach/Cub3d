@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 11:38:33 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:49:30 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ typedef struct s_data
 }	t_data;
 
 int		ft_read_map(t_data *data, char *file);
-void	ft_draw_minimap(t_data *data);
 int		ft_render_next_frame(t_data *data);
 int		ft_key_press(int keycode, t_data *data);
 int		ft_key_free(int keycode, t_data *data);
@@ -126,7 +125,6 @@ t_pos	ft_wall_hdistance(t_pos pos, float angle);
 void	ft_put_pixel(t_img *image, int x, int y, int color);
 void	ft_draw_walls(t_data *data);
 float	ft_distance(t_pos pos1, t_pos pos2);
-void	ft_draw_rays(t_data *data);
 void	ft_floor_ceilling_color(t_data *data);
 //utils
 int		ft_is_init(t_data *data);

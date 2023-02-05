@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 14:10:49 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 15:53:17 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:05:53 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 int	ft_exit_program(t_data *data)
 {

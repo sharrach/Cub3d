@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:20:54 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:05:45 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
 {

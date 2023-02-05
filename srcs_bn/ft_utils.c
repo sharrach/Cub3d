@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:21:03 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 16:32:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:06:30 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 int	ft_is_number(char *str)
 {

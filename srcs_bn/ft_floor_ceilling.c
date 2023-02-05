@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:19:21 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 13:10:40 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:05:57 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 unsigned long	rgb(int rgb[3])
 {

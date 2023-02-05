@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 15:43:30 by iellyass          #+#    #+#             */
-/*   Updated: 2023/02/04 17:17:32 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:54:54 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 static int	ft_mlx_loop(t_data data)
 {

@@ -6,11 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:41:56 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 13:13:49 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/05 22:06:05 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "../includes/cub3d_bonus.h"
 
 int	ft_get_map(t_data *data, int fd)
 {
