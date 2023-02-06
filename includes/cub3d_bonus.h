@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:03:42 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:56:14 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 14:13:53 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,18 @@
 # include <math.h>
 # include <errno.h>
 
-# define KEY_ESC	65307
-# define KEY_A		97
-# define KEY_S		115
-# define KEY_D		100
-# define KEY_W		119
-
-// # define KEY_ESC 53
-// # define KEY_A 0
-// # define KEY_S 1
-// # define KEY_D 2
-// # define KEY_W 13
+# define KEY_ESC 53
+# define KEY_A 0
+# define KEY_S 1
+# define KEY_D 2
+# define KEY_W 13
 
 # define KEY_LEFT	123
 # define KEY_UP		126
 # define KEY_RIGHT	124
 # define KEY_DOWN	125
 
-# define TILE_SIZE	4
+# define TILE_SIZE	8
 # define FOV		60
 # define WIDTH		1080
 # define HEIGHT		720
@@ -138,7 +132,6 @@ char	*ft_remove_nl(char const *s1, char const *set);
 int		ft_map_closed(t_data *data);
 int		ft_get_image(t_data *data, char **usb);
 int		ft_get_map(t_data *data, int fd);
-int		ft_get_colors(t_data *data, char **usb);
 void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var);
 int		ft_exit_program(t_data *data);
 void	*ft_free2d(char **arr);

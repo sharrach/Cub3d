@@ -6,40 +6,11 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:34:11 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:06:23 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:43:50 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
-
-int	ft_get_colors(t_data *data, char **usb)
-{
-	char	**clr;
-
-	clr = ft_split(usb[1], ',');
-	if (!clr || ft_arrlen(clr) != 3 || !ft_is_number(clr[0])
-		|| !ft_is_number(clr[1]) || !ft_is_number(clr[2]))
-		return (printf("Error\nInvalid colors\n"), free_2d(clr), 0);
-	if (ft_strcmp(usb[0], "C") == 0)
-	{
-		data->ce[0] = ft_atoi(clr[0]);
-		data->ce[1] = ft_atoi(clr[1]);
-		data->ce[2] = ft_atoi(clr[2]);
-		if (data->ce[0] < 0 || data->ce[1] < 0 || data->ce[2] < 0
-			|| data->ce[0] > 255 || data->ce[1] > 255 || data->ce[2] > 255)
-			return (printf("Error\nInvalid colors\n"), free_2d(clr), 0);
-	}
-	if (ft_strcmp(usb[0], "F") == 0)
-	{
-		data->fl[0] = ft_atoi(clr[0]);
-		data->fl[1] = ft_atoi(clr[1]);
-		data->fl[2] = ft_atoi(clr[2]);
-		if (data->fl[0] < 0 || data->fl[1] < 0 || data->fl[2] < 0
-			|| data->fl[0] > 255 || data->fl[1] > 255 || data->fl[2] > 255)
-			return (printf("Error\nInvalid colors\n"), free_2d(clr), 0);
-	}
-	return (free_2d(clr), 1);
-}
 
 int	ft_get_texts(t_data *data, int fd)
 {

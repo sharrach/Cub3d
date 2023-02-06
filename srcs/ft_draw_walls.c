@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/01/30 15:20:54 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:44:29 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	ft_draw_walls(t_data *data)
 	int		var;
 
 	rays = 0;
-	sight = data->player.sight - (FOV / 2) * (PI / 180);
+	sight = data->player.sight - (FOV / 	2) * (PI / 180);
 	while (rays < FOV)
 	{
 		wall = ft_get_wall(data, sight, &var);

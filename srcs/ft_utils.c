@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:21:03 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 16:32:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 10:59:26 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ int	ft_is_number(char *str)
 	if (i == 1 && (str[i] == '+' || str[i] == '-'))
 		return (0);
 	return (1);
+}
+
+float	ft_distance(t_pos pos1, t_pos pos2)
+{
+	float	distance;
+
+	distance = sqrt(powf(pos2.x - pos1.x, 2) + powf(pos2.y - pos1.y, 2));
+	return (distance);
 }
 
 static int	ft_str_has_char(const char *str, char c)

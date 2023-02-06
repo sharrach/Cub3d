@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 15:45:30 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:05:26 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:46:59 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,6 @@ static void	ft_draw_square(t_data *data, t_intpos pos, int color)
 	}
 }
 
-float	ft_distance(t_pos pos1, t_pos pos2)
-{
-	float	distance;
-
-	distance = sqrt(powf(pos2.x - pos1.x, 2) + powf(pos2.y - pos1.y, 2));
-	return (distance);
-}
-
 void	ft_draw_minimap(t_data *data)
 {
 	t_intpos	cord;
@@ -66,14 +58,11 @@ void	ft_draw_minimap(t_data *data)
 		{
 			if (data->map[cord.y][cord.x] == '1')
 				ft_draw_square(data, cord, 0xeb4034);
-			if (ft_strchr("0NSWE", data->map[cord.y][cord.x]))
+			else if (ft_strchr("0NSWE", data->map[cord.y][cord.x]))
 				ft_draw_square(data, cord, 0xbfbf9f);
-			if (data->map[cord.y][cord.x] == ' ')
-				ft_draw_square(data, cord, 0x1752e8);
 			cord.x++;
 		}
 		cord.y++;
 	}
 	ft_draw_player(data, data->player.pos, 0x12c912);
-	// ft_draw_rays(data);
 }

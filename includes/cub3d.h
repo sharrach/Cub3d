@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:49:30 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:44:22 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ char	*ft_remove_nl(char const *s1, char const *set);
 int		ft_map_closed(t_data *data);
 int		ft_get_image(t_data *data, char **usb);
 int		ft_get_map(t_data *data, int fd);
-int		ft_get_colors(t_data *data, char **usb);
 void	ft_draw_rect(t_data *data, t_elmnt elmnt, t_img img, int var);
 int		ft_exit_program(t_data *data);
 void	*ft_free2d(char **arr);

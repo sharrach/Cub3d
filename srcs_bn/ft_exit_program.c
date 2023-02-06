@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 14:10:49 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:05:53 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 11:59:15 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	ft_exit_program(t_data *data)
 	mlx_destroy_image(data->mlx, data->we.img);
 	mlx_destroy_image(data->mlx, data->so.img);
 	mlx_destroy_image(data->mlx, data->image.img);
+	printf("Game Closed");
 	exit (EXIT_SUCCESS);
 }

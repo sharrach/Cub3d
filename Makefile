@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/02/05 22:49:23 by sharrach         ###   ########.fr        #
+#    Updated: 2023/02/06 14:20:59 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,19 +64,10 @@ LIBFT	=	libft
 
 LIB		=	$(LIBFT)/libft.a
 
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S), Darwin)
-	MLX_DIR		=	mlx_macos
-	MLX			=	$(MLX_DIR)/libmlx.a
-	MLX_IFLAGS	=	-Imlx_macos
-	MLX_LFLAGS	=	-framework OpenGL -framework AppKit
-endif
-ifeq ($(UNAME_S), Linux)
-	MLX_DIR		=	mlx_linux
-	MLX			=	$(MLX_DIR)/libmlx.a
-	MLX_IFLAGS	=	-I/usr/include -Imlx_linux -O3
-	MLX_LFLAGS	=	-Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
-endif
+MLX_DIR		=	mlx_macos
+MLX			=	$(MLX_DIR)/libmlx.a
+MLX_IFLAGS	=	-Imlx_macos
+MLX_LFLAGS	=	-framework OpenGL -framework AppKit
 
 %.o: %.c $(HEADER) $(BONUS_HEADER)
 			$(CC) $(CFLAGS) $(MLX_IFLAGS) -c $< -o $@
@@ -89,6 +80,9 @@ $(BONUS_NAME)	:	$(LIB) $(MLX) $(OBJS_BN) $(BONUS_HEADER)
 
 $(LIB):
 			make -C $(LIBFT)
+
+$(MLX):
+			make -C $(MLX_DIR)
 
 all		:	$(NAME)
 

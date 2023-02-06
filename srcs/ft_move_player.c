@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:03:00 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/04 15:52:11 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:51:27 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	ft_move_player(t_data *data, float sight)
 {
 	float	tmp;
 	float	tmp1;
+	float	wall_dis;
 
 	tmp = data->player.pos.y + sin(sight) * 0.1;
 	tmp1 = data->player.pos.x + cos(sight) * 0.1;
-	if (data->map[(int)tmp][(int)tmp1] != '1')
-	{
-		data->player.pos.y = tmp;
-		data->player.pos.x = tmp1;
-	}
+	wall_dis = ft_get_wall2(data, sight);
+	if (tmp > wall_dis || tmp1 > wall_dis)
+	{data->player.pos.y = tmp;
+	data->player.pos.x = tmp1;}
 }
 
 void	ft_get_player_sight(t_data *data)
@@ -70,11 +70,7 @@ int	ft_key_press(int keycode, t_data *data)
 	else if (keycode == KEY_LEFT)
 		data->vars.l_var = 1;
 	else if (keycode == KEY_ESC)
-	{
 		ft_exit_program(data);
-		printf("Game Closed");
-		exit(0);
-	}
 	return (0);
 }
 
