@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 13:03:42 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 14:13:53 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:09:07 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@
 # define KEY_S 1
 # define KEY_D 2
 # define KEY_W 13
-
 # define KEY_LEFT	123
 # define KEY_UP		126
 # define KEY_RIGHT	124
@@ -118,13 +117,12 @@ int		ft_key_free(int keycode, t_data *data);
 void	ft_get_player_sight(t_data *data);
 t_pos	ft_wall_vdistance(t_pos pos, float angle);
 t_pos	ft_wall_hdistance(t_pos pos, float angle);
+t_pos	ft_get_wall(t_data *data, float angle, int *var);
 void	ft_put_pixel(t_img *image, int x, int y, int color);
 void	ft_draw_walls(t_data *data);
 float	ft_distance(t_pos pos1, t_pos pos2);
 void	ft_floor_ceilling_color(t_data *data);
 void	ft_mouse_movement(t_data *data);
-
-//utils
 int		ft_is_init(t_data *data);
 void	ft_init_data(t_data *data);
 int		ft_is_number(char *str);

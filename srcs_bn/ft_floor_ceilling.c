@@ -6,13 +6,13 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:19:21 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/05 22:05:57 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:41:26 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-unsigned long	rgb(int rgb[3])
+static unsigned long	rgb(int rgb[3])
 {
 	return (rgb[0] << 16 | rgb[1] << 8 | rgb[2]);
 }

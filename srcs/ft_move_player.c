@@ -6,24 +6,21 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 14:03:00 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 18:51:27 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:41:49 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	ft_move_player(t_data *data, float sight)
+static void	ft_move_player(t_data *data, float sight)
 {
 	float	tmp;
 	float	tmp1;
-	float	wall_dis;
 
 	tmp = data->player.pos.y + sin(sight) * 0.1;
 	tmp1 = data->player.pos.x + cos(sight) * 0.1;
-	wall_dis = ft_get_wall2(data, sight);
-	if (tmp > wall_dis || tmp1 > wall_dis)
-	{data->player.pos.y = tmp;
-	data->player.pos.x = tmp1;}
+	data->player.pos.y = tmp;
+	data->player.pos.x = tmp1;
 }
 
 void	ft_get_player_sight(t_data *data)

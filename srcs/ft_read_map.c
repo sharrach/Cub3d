@@ -6,13 +6,13 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:34:11 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 11:42:57 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 13:39:39 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int	ft_get_texts(t_data *data, int fd)
+static int	ft_get_texts(t_data *data, int fd)
 {
 	char	*line;
 	char	**usb;

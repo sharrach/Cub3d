@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/25 14:35:01 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 11:44:22 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:08:21 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@
 # include <math.h>
 # include <errno.h>
 
-
-// # define KEY_ESC	65307
-// # define KEY_A		97
-// # define KEY_S		115
-// # define KEY_D		100
-// # define KEY_W		119
 # define KEY_ESC 53
 # define KEY_A 0
 # define KEY_S 1
@@ -38,7 +32,6 @@
 # define KEY_RIGHT	124
 # define KEY_DOWN	125
 
-# define TILE_SIZE	4
 # define FOV		60
 # define WIDTH		1080
 # define HEIGHT		720
@@ -126,7 +119,6 @@ void	ft_put_pixel(t_img *image, int x, int y, int color);
 void	ft_draw_walls(t_data *data);
 float	ft_distance(t_pos pos1, t_pos pos2);
 void	ft_floor_ceilling_color(t_data *data);
-//utils
 int		ft_is_init(t_data *data);
 void	ft_init_data(t_data *data);
 int		ft_is_number(char *str);

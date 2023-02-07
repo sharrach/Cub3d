@@ -6,7 +6,7 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 13:41:56 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 14:58:52 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:05:54 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,24 +45,29 @@ int	ft_get_map(t_data *data, int fd)
 {
 	char	*line;
 	char	*lines;
+	int		nl;
 
 	lines = ft_strdup("");
 	while (1)
 	{
 		line = get_next_line(fd);
+		if (!line && nl)
+			return (printf("Error\nEmpty line in Map!\n"), free(line), 0);
 		if (!line)
 			break ;
+		nl = 0;
+		if (line[ft_strlen(line) - 1] == '\n')
+			nl = 1;
 		if (*lines && (!*line || ft_strcmp(line, "\n") == 0))
 			return (printf("Error\nEmpty line in Map!\n"), free(line), 0);
-		if (*line && ft_strcmp(line, "\n") != 0)
+		if (ft_strcmp(line, "\n") != 0)
 			lines = ft_stradd(lines, line);
 		free(line);
 	}
 	data->map = ft_split(lines, '\n');
-	free(lines);
 	if (!data->map)
-		return (0);
-	return (1);
+		return (free(lines), 0);
+	return (free(lines), 1);
 }
 
 static void	ft_get_image_data(t_data *data, t_img *img, char *file)

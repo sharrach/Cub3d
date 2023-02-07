@@ -6,13 +6,13 @@
 /*   By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/07 12:57:59 by sharrach          #+#    #+#             */
-/*   Updated: 2023/02/06 11:30:31 by sharrach         ###   ########.fr       */
+/*   Updated: 2023/02/07 14:34:46 by sharrach         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-void	ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
+static void	ft_draw_wall(t_data *data, t_pos wall, float angle, int var)
 {
 	static t_elmnt	elmnt;
 	float			distance;
@@ -83,15 +83,17 @@ static t_pos	ft_get_h_inters(t_data *data, float angle)
 	return (h_inters);
 }
 
-static t_pos	ft_get_wall(t_data *data, float angle, int *var)
+t_pos	ft_get_wall(t_data *data, float angle, int *var)
 {
 	if (ft_distance(data->player.pos, ft_get_h_inters(data, angle))
 		< ft_distance(data->player.pos, ft_get_v_inters(data, angle)))
 	{
-		*var = 1;
+		if (var)
+			*var = 1;
 		return (ft_get_h_inters(data, angle));
 	}
-	*var = 2;
+	if (var)
+		*var = 2;
 	return (ft_get_v_inters(data, angle));
 }
 

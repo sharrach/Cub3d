@@ -6,7 +6,7 @@
 #    By: sharrach <sharrach@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/18 17:38:52 by sharrach          #+#    #+#              #
-#    Updated: 2023/02/06 14:20:59 by sharrach         ###   ########.fr        #
+#    Updated: 2023/02/07 15:07:02 by sharrach         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ $(LIB):
 $(MLX):
 			make -C $(MLX_DIR)
 
-all		:	$(NAME)
+all		:	$(NAME) $(BONUS_NAME)
 
 bonus	:	$(BONUS_NAME)
 
@@ -99,5 +99,3 @@ fclean	:	clean
 			make fclean -C $(LIBFT)
 
 re		:	fclean all
-
-.PHONY	:	all clean fclean re
